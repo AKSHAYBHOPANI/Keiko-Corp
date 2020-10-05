@@ -1,7 +1,7 @@
 /* Start navbar styles */
 .container-nav {
   width: 100%;
-  max-width: 1320px;
+  /*   max-width: 1320px; */
   margin: auto;
 }
 
@@ -32,7 +32,6 @@
 
 .navbar {
   display: flex;
-  padding: 0 10px;
   height: 80px;
   align-items: center;
 }
@@ -118,8 +117,8 @@
   cursor: pointer;
 }
 
-input {
-  display: none;
+#toggle-checkbox {
+  opacity: 0;
 }
 
 .toggle-container {
@@ -131,6 +130,10 @@ input {
   border-radius: 50px;
   background: #f4f6ff;
   transition: transform 0.5s;
+}
+
+input:focus + .toggle-container {
+  box-shadow: var(--focusShadow);
 }
 
 input:checked ~ .toggle-container {
@@ -178,8 +181,8 @@ input:checked ~ .toggle-container {
     visibility: hidden;
   }
   .navbar {
+    padding: 2em;
     background-color: white;
-    padding: 0 40px;
   }
 
   .navbar ul.menu li {
@@ -191,5 +194,8 @@ input:checked ~ .toggle-container {
   }
   .navbar ul.menu li:hover {
     transform: translateY(-3%);
+  }
+  .navbar span {
+    padding: 3px;
   }
 }
