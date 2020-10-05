@@ -1,14 +1,15 @@
 const toggleContainer = document.querySelector('#toggle-container');
 const inputCheck = document.querySelector('input[type="checkbox"]');
-const body = document.querySelector('body');
 const content = document.querySelector('.hero_content');
 const contentPara = document.querySelector('.hero_content > p');
+const contenttitle = document.querySelector('.hero_content > h2');
 const toggleBar = document.querySelector('#toggle-bar');
-const contactBanner = document.querySelector('.contact-banner-container');
 const updateBanner = document.querySelector('.neverMissUpdate');
 const updateHeading = document.querySelector('.update-heading');
-const footericons=document.querySelectorAll('.icon')
-
+const footerLink = document.querySelectorAll('.sub-footer-link > li > a');
+const footericons = document.querySelectorAll('.icon')
+const teamMemberName = document.querySelectorAll('.team-member h3')
+const footerrow= document.querySelectorAll('.footer-column>h2:nth-child(1)');
 //dark mode
 function changeToDarkMode() {
   body.style.background = '#132743';
@@ -16,10 +17,16 @@ function changeToDarkMode() {
   content.style.color = '#eaeaea';
   contentPara.style.color = '#aeaeae';
   toggleBar.style.background = '#01a9b4';
-  contactBanner.style.background = '#132743';
+  contenttitle.style.color = '#FFFFFF';
+  footerrow.forEach((item,index)=>{
+
+    footerrow[index].style.color='#00FFFF';
+  })
   updateBanner.style.backgroundColor = '#343a40';
   updateHeading.style.color = '#fff';
-  footericons.forEach(e=>e.style.color="#000")
+  for (i = 0; i < footerLink.length; i++) footerLink[i].style.color = 'white';
+  footericons.forEach(e => e.style.color = "#000")
+  this.changeTeamMemberColor('#fff')
 }
 
 //light mode
@@ -32,6 +39,7 @@ function changeToLightMode() {
   contactBanner.style.background = '#ebecf1';
   updateBanner.style.backgroundColor = '#ebecf1';
   updateHeading.style.color = '#1d1c1c';
+  this.changeTeamMemberColor('#808080')
 }
 
 //callback function to toggle between modes
@@ -60,8 +68,10 @@ if (currentTheme) {
   }
 }
 
-function changeTeamMemberColor(color){
-  Array.from(teamMemberName).forEach(item=>{
+function changeTeamMemberColor(color) {
+  console.log("called")
+  document.querySelector('#team>h2').style.color = color
+  Array.from(teamMemberName).forEach(item => {
     item.style.color = color;
   })
 }
